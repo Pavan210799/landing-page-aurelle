@@ -40,7 +40,7 @@ export default function Button({
         href={href}
         className={classes}
         onClick={(event) => {
-          if (handleInternalNavClick(event, href)) return
+          if (handleInternalNavClick(event, href, () => onClick?.(event))) return
           runWithFeedback(href, onClick)(event)
         }}
         {...props}

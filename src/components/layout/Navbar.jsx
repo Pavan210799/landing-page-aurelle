@@ -39,9 +39,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
+    if (!menuOpen) {
       document.body.style.overflow = ''
+      return undefined
+    }
+
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previous
     }
   }, [menuOpen])
 
