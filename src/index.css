@@ -24,13 +24,8 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    scroll-padding-top: 5.5rem;
-  }
-
-  @media (min-width: 640px) {
-    html {
-      scroll-padding-top: 6rem;
-    }
+    --site-header-height: 5.5rem;
+    scroll-padding-top: var(--site-header-height);
   }
 
   body {

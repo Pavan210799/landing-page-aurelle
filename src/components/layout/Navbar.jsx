@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { navLinks } from '../../data/content'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { useScrolledNav } from '../../hooks/useScrolledNav'
+import { useSiteHeaderHeight } from '../../hooks/useSiteHeaderHeight'
 import { handleInternalNavClick } from '../../utils/handleInternalNavClick'
 import Button from '../ui/Button'
 
@@ -37,6 +38,7 @@ export default function Navbar() {
   const scrolled = useScrolledNav()
   const activeSection = useActiveSection()
   const [menuOpen, setMenuOpen] = useState(false)
+  const headerRef = useSiteHeaderHeight([menuOpen])
 
   useEffect(() => {
     if (!menuOpen) {
@@ -55,6 +57,7 @@ export default function Navbar() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || menuOpen
           ? 'border-b border-charcoal/5 bg-ivory/90 shadow-sm backdrop-blur-xl'

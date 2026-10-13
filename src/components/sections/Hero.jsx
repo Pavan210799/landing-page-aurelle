@@ -42,8 +42,11 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E')]" />
       </div>
 
-      <div className="relative z-10 flex h-full w-full flex-col justify-center">
-        <div className="mx-auto w-full max-w-7xl px-4 pb-6 pt-[4.75rem] sm:px-6 sm:pb-8 sm:pt-24 md:px-8 lg:px-10">
+      <div
+        className="relative z-10 flex h-full min-h-0 w-full flex-col"
+        style={{ paddingTop: 'var(--site-header-height, 5.5rem)' }}
+      >
+        <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col justify-center overflow-y-auto px-4 pb-6 pt-2 sm:px-6 sm:pb-8 sm:pt-3 md:px-8 lg:px-10">
           <div className="grid items-center gap-8 md:grid-cols-[0.92fr_1.08fr] md:gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10">
             <div className="min-w-0 max-w-xl md:max-w-none lg:max-w-2xl">
               <motion.p
