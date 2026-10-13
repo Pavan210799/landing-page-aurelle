@@ -1,4 +1,9 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
+import {
+  footerLinkGroups,
+  footerMapsHref,
+  footerSocialLinks,
+} from '../../data/footerLinks'
 import { useLinkActionFeedback } from '../../hooks/useLinkActionFeedback'
 import { handleInternalNavClick } from '../../utils/handleInternalNavClick'
 import Container from '../ui/Container'
@@ -30,35 +35,25 @@ function IconLinkedIn(props) {
   )
 }
 
-const footerLinks = {
-  Explore: [
-    { label: 'Destinations', href: '#features' },
-    { label: 'Membership', href: '#pricing' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Member Stories', href: '#testimonials' },
-  ],
-  Company: [
-    { label: 'About', href: '#about' },
-    { label: 'Careers', href: '#contact' },
-    { label: 'Press', href: '#testimonials' },
-    { label: 'Partners', href: '#features' },
-  ],
-  Support: [
-    { label: 'Help Center', href: '#how-it-works' },
-    { label: 'Contact', href: '#contact' },
-    { label: 'Privacy', href: '#about' },
-    { label: 'Terms', href: '#pricing' },
-  ],
+const socialIcons = {
+  Instagram: IconInstagram,
+  X: IconX,
+  LinkedIn: IconLinkedIn,
 }
 
-const social = [
-  { icon: IconInstagram, label: 'Instagram', href: 'https://instagram.com' },
-  { icon: IconX, label: 'X', href: 'https://x.com' },
-  { icon: IconLinkedIn, label: 'LinkedIn', href: 'https://linkedin.com' },
-]
+function FooterNavItem({ link }) {
+  const isExternal = link.type === 'external'
 
-const mapsHref =
-  'https://maps.google.com/?q=88+Madison+Avenue+New+York+NY+10016'
+  return (
+    <TextLink
+      href={link.href}
+      external={isExternal}
+      className="text-sm text-ivory/70 hover:text-ivory"
+    >
+      {link.label}
+    </TextLink>
+  )
+}
 
 export default function Footer() {
   const { runWithFeedback } = useLinkActionFeedback()
@@ -83,17 +78,15 @@ export default function Footer() {
             <ul className="mt-8 space-y-3 text-sm text-ivory/80">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                <a
-                  href={mapsHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={runWithFeedback(mapsHref)}
-                  className="transition-colors duration-150 hover:text-gold-light"
+                <TextLink
+                  href={footerMapsHref}
+                  external
+                  className="text-ivory/80 hover:text-gold-light"
                 >
                   88 Madison Avenue, Suite 1200
                   <br />
                   New York, NY 10016
-                </a>
+                </TextLink>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-gold" />
@@ -113,24 +106,27 @@ export default function Footer() {
             </ul>
 
             <div className="mt-8 flex gap-3">
-              {social.map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  onClick={runWithFeedback(href)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ivory/15 text-ivory/80 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-gold hover:bg-gold/10 hover:text-gold-light hover:shadow-md hover:shadow-gold/15"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              {footerSocialLinks.map(({ label, href }) => {
+                const Icon = socialIcons[label]
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    onClick={runWithFeedback(href)}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-ivory/15 text-ivory/80 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-gold hover:bg-gold/10 hover:text-gold-light hover:shadow-md hover:shadow-gold/15"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                )
+              })}
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-            {Object.entries(footerLinks).map(([title, links]) => (
+            {Object.entries(footerLinkGroups).map(([title, links]) => (
               <div key={title}>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
                   {title}
@@ -138,9 +134,7 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {links.map((link) => (
                     <li key={link.label}>
-                      <TextLink href={link.href} className="text-sm text-ivory/70 hover:text-ivory">
-                        {link.label}
-                      </TextLink>
+                      <FooterNavItem link={link} />
                     </li>
                   ))}
                 </ul>
