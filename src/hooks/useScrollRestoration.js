@@ -40,18 +40,22 @@ export function useScrollRestoration(isPageReady) {
     const savedY = readScrollPosition()
 
     const applyScroll = () => {
-      if (savedY != null) {
+      if (savedY != null && savedY > 0) {
         clearUrlHash()
         window.scrollTo({ top: savedY, left: 0, behavior: 'instant' })
         return
       }
 
       const hash = window.location.hash.replace('#', '')
-      if (hash) {
+      if (hash && hash !== 'hero') {
         const target = document.getElementById(hash)
         if (target) target.scrollIntoView({ behavior: 'auto', block: 'start' })
         clearUrlHash()
+        return
       }
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      clearUrlHash()
     }
 
     applyScroll()

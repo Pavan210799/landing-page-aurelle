@@ -5,7 +5,10 @@ import HeroDestinationShowcase from './HeroDestinationShowcase'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative h-[100svh] max-h-[100svh] w-full overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-[100svh] w-full overflow-x-clip lg:h-[100svh] lg:max-h-[100svh] lg:overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden">
         {/* Phone & tablet: fixed background (no motion) */}
         <div className="absolute inset-0 lg:hidden">
@@ -46,8 +49,8 @@ export default function Hero() {
         className="relative z-10 flex h-full min-h-0 w-full flex-col"
         style={{ paddingTop: 'var(--site-header-height, 5.5rem)' }}
       >
-        <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col justify-center overflow-y-auto px-4 pb-6 pt-2 sm:px-6 sm:pb-8 sm:pt-3 md:px-8 lg:px-10">
-          <div className="grid items-center gap-8 md:grid-cols-[0.92fr_1.08fr] md:gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start px-4 pb-8 pt-4 sm:px-6 sm:pb-10 sm:pt-5 md:px-8 lg:min-h-0 lg:justify-center lg:overflow-y-auto lg:px-10 lg:pb-6 lg:pt-3">
+          <div className="grid items-start gap-6 sm:gap-8 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10">
             <div className="min-w-0 max-w-xl md:max-w-none lg:max-w-2xl">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}

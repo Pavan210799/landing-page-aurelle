@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 
 const CSS_VAR = '--site-header-height'
 
 export function useSiteHeaderHeight(deps = []) {
   const headerRef = useRef(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement
     const header = headerRef.current
     if (!header) return undefined

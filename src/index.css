@@ -32,6 +32,10 @@
     @apply m-0 min-h-screen overflow-x-hidden bg-ivory font-body text-charcoal antialiased;
   }
 
+  #hero {
+    scroll-margin-top: 0;
+  }
+
   #root {
     @apply min-h-screen overflow-x-hidden;
   }

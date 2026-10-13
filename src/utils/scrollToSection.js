@@ -8,6 +8,13 @@ function getScrollOffset() {
 
 export function scrollToSection(sectionId, { behavior = 'smooth' } = {}) {
   if (!sectionId) return
+
+  if (sectionId === 'hero') {
+    window.scrollTo({ top: 0, left: 0, behavior })
+    clearUrlHash()
+    return
+  }
+
   const el = document.getElementById(sectionId)
   if (!el) return
 
