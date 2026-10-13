@@ -7,11 +7,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] w-full overflow-x-clip lg:h-[100svh] lg:max-h-[100svh] lg:overflow-hidden"
+      className="relative min-h-[100svh] w-full overflow-x-clip xl:h-[100svh] xl:max-h-[100svh] xl:overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden">
         {/* Phone & tablet: fixed background (no motion) */}
-        <div className="absolute inset-0 lg:hidden">
+        <div className="absolute inset-0 xl:hidden">
           <img
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=85"
             alt="Luxury travel map and camera"
@@ -21,7 +21,7 @@ export default function Hero() {
 
         {/* Desktop: smooth, slightly faster Ken Burns drift */}
         <motion.div
-          className="absolute left-1/2 top-1/2 hidden h-[118%] w-[118%] -translate-x-1/2 -translate-y-1/2 will-change-transform lg:block"
+          className="absolute left-1/2 top-1/2 hidden h-[118%] w-[118%] -translate-x-1/2 -translate-y-1/2 will-change-transform xl:block"
           animate={{
             x: ['-1.75%', '1.75%'],
             y: ['-1.1%', '1.1%'],
@@ -49,9 +49,9 @@ export default function Hero() {
         className="relative z-10 flex h-full min-h-0 w-full flex-col"
         style={{ paddingTop: 'var(--site-header-height, 5.5rem)' }}
       >
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start px-4 pb-8 pt-4 sm:px-6 sm:pb-10 sm:pt-5 md:px-8 lg:min-h-0 lg:justify-center lg:overflow-y-auto lg:px-10 lg:pb-6 lg:pt-3">
-          <div className="grid items-start gap-6 sm:gap-8 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10">
-            <div className="min-w-0 max-w-xl md:max-w-none lg:max-w-2xl">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start px-4 pb-8 pt-4 sm:px-6 sm:pb-10 sm:pt-5 md:px-8 xl:min-h-0 xl:justify-center xl:overflow-y-auto xl:px-10 xl:pb-6 xl:pt-3">
+          <div className="grid items-start gap-6 sm:gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-center xl:gap-10">
+            <div className="min-w-0 max-w-xl xl:max-w-2xl">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.28, duration: 0.75 }}
-                className="font-display text-balance text-[1.625rem] leading-[1.12] text-ivory sm:text-4xl md:text-[2.35rem] lg:text-5xl"
+                className="font-display text-balance text-[1.625rem] leading-[1.12] text-ivory sm:text-4xl md:text-[2.35rem] xl:text-5xl"
               >
                 Discover stays crafted for the{' '}
                 <span className="italic text-gold-light">exceptional</span> traveler
@@ -73,7 +73,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.65 }}
-                className="mt-3 line-clamp-3 text-sm leading-relaxed text-ivory/85 sm:mt-4 sm:line-clamp-none sm:text-[0.95rem] lg:text-base"
+                className="mt-3 line-clamp-3 text-sm leading-relaxed text-ivory/85 sm:mt-4 sm:line-clamp-none sm:text-[0.95rem] xl:text-base"
               >
                 AURELLE curates premium retreats, private estates, and destination
                 experiences—with editorial storytelling and concierge care.
@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.55, duration: 0.8 }}
-              className="hidden justify-center sm:flex"
+              className="flex w-full justify-center pt-2 sm:pt-4 xl:pt-0"
             >
               <HeroDestinationShowcase />
             </motion.div>
@@ -115,7 +115,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-ivory/55 md:flex"
+          className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-ivory/55 xl:flex"
         >
           <span className="text-[0.6rem] uppercase tracking-[0.3em]">Scroll</span>
           <motion.span
