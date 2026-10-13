@@ -14,7 +14,7 @@ export default function Testimonials() {
           description="Real stories from members who've experienced AURELLE's curated stays and concierge care."
         />
 
-        <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-8 xl:grid-cols-3">
           {testimonials.map((item, index) => (
             <Reveal key={item.name} delay={index * 0.1}>
               <li className="group h-full transition-transform duration-150 ease-out hover:-translate-y-0.5">

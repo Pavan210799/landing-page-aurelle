@@ -14,21 +14,21 @@ export default function About() {
   return (
     <section id="about" className="section-padding bg-ivory">
       <Container>
-        <div className="grid items-center gap-8 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-2 lg:gap-20">
-          <Reveal className="relative order-2 md:order-1 md:justify-self-center lg:justify-self-auto">
-            <div className="group/image relative mx-auto w-full max-w-[280px] overflow-hidden rounded-2xl luxury-shadow md:max-w-[300px] lg:max-w-none">
+        <div className="grid items-center gap-8 xl:grid-cols-2 xl:gap-20">
+          <Reveal className="relative order-2 xl:order-1 xl:justify-self-auto">
+            <div className="group/image relative mx-auto w-full max-w-[280px] overflow-hidden rounded-2xl luxury-shadow sm:max-w-[320px] xl:max-w-none">
               <img
                 src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=80"
                 alt="Elegant luxury suite with ocean view"
-                className={`aspect-[3/4] w-full object-cover transition-transform duration-150 ease-out will-change-transform group-hover/image:scale-[1.02] md:aspect-[4/5] md:max-h-[340px] lg:aspect-[5/6] lg:max-h-none ${hoverEase}`}
+                className={`aspect-[3/4] w-full object-cover transition-transform duration-150 ease-out will-change-transform group-hover/image:scale-[1.02] sm:aspect-[4/5] sm:max-h-[380px] xl:aspect-[5/6] xl:max-h-none ${hoverEase}`}
                 loading="lazy"
               />
             </div>
             <Reveal delay={0.15} y={16}>
               <div
-                className={`group absolute bottom-3 right-3 max-w-[min(200px,calc(100%-1.5rem))] rounded-xl border border-gold/20 bg-ivory p-4 luxury-shadow transition-all duration-150 ease-out hover:-translate-y-1 hover:border-gold/45 hover:luxury-shadow-hover md:bottom-4 md:right-4 md:p-4 lg:-bottom-6 lg:-right-6 lg:max-w-[220px] lg:p-5 ${hoverEase}`}
+                className={`group absolute bottom-3 right-3 max-w-[min(200px,calc(100%-1.5rem))] rounded-xl border border-gold/20 bg-ivory p-4 luxury-shadow transition-all duration-150 ease-out hover:-translate-y-1 hover:border-gold/45 hover:luxury-shadow-hover sm:bottom-4 sm:right-4 xl:-bottom-6 xl:-right-6 xl:max-w-[220px] xl:p-5 ${hoverEase}`}
               >
-                <p className="font-display text-xl text-charcoal transition-colors duration-150 group-hover:text-gold-dark lg:text-2xl">
+                <p className="font-display text-xl text-charcoal transition-colors duration-150 group-hover:text-gold-dark xl:text-2xl">
                   Since 2018
                 </p>
                 <p className="mt-1 text-xs text-muted sm:text-sm">
@@ -38,7 +38,7 @@ export default function About() {
             </Reveal>
           </Reveal>
 
-          <div className="order-1 md:order-2">
+          <div className="order-1 xl:order-2">
             <SectionHeading
               align="left"
               eyebrow="About Aurelle"

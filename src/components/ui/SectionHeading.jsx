@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useRevealVisibility } from '../../hooks/useRevealVisibility'
 
 export default function SectionHeading({
   eyebrow,
@@ -8,8 +8,7 @@ export default function SectionHeading({
   align = 'center',
   dark = false,
 }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, margin: '-80px', amount: 0.2 })
+  const { ref, visible } = useRevealVisibility({ margin: '-80px', amount: 0.2 })
 
   const alignClass =
     align === 'left' ? 'text-left items-start' : 'text-center items-center'
@@ -17,7 +16,7 @@ export default function SectionHeading({
   return (
     <motion.div
       ref={ref}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`mb-12 flex max-w-3xl flex-col gap-4 sm:mb-16 ${alignClass} ${align === 'center' ? 'mx-auto' : ''}`}
     >
