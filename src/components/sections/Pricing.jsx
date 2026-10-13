@@ -19,10 +19,10 @@ export default function Pricing() {
           {pricingPlans.map((plan, index) => (
             <Reveal key={plan.name} delay={index * 0.12} className="h-full">
               <li
-                className={`relative flex h-full flex-col rounded-2xl p-6 transition-all duration-150 ease-out sm:p-8 ${
+                className={`group/plan relative flex h-full flex-col rounded-2xl p-6 transition-all duration-200 ease-out sm:p-8 ${
                   plan.highlighted
-                    ? 'scale-100 border-2 border-gold bg-charcoal text-ivory shadow-2xl shadow-charcoal/20 lg:scale-[1.03]'
-                    : 'border border-charcoal/10 bg-ivory luxury-shadow hover:-translate-y-0.5 hover:luxury-shadow-hover'
+                    ? 'scale-100 border-2 border-gold bg-charcoal text-ivory shadow-2xl shadow-charcoal/20 hover:-translate-y-1.5 hover:border-gold-light hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45),0_0_0_1px_rgba(232,213,163,0.25)] lg:scale-[1.03] lg:hover:scale-[1.05]'
+                    : 'border border-charcoal/10 bg-ivory luxury-shadow hover:-translate-y-1.5 hover:border-gold/35 hover:bg-ivory hover:shadow-[0_20px_40px_-12px_rgba(26,26,26,0.14),0_0_0_1px_rgba(201,169,98,0.15)]'
                 }`}
               >
                 {plan.highlighted && (
@@ -33,7 +33,7 @@ export default function Pricing() {
 
                 <div>
                   <h3
-                    className={`font-display text-2xl ${plan.highlighted ? 'text-ivory' : 'text-charcoal'}`}
+                    className={`font-display text-2xl transition-colors duration-200 ${plan.highlighted ? 'text-ivory group-hover/plan:text-gold-light' : 'text-charcoal group-hover/plan:text-gold-dark'}`}
                   >
                     {plan.name}
                   </h3>
@@ -44,7 +44,7 @@ export default function Pricing() {
                   </p>
                   <div className="mt-6 flex items-baseline gap-1">
                     <span
-                      className={`font-display text-4xl sm:text-5xl ${plan.highlighted ? 'text-gold-light' : 'text-charcoal'}`}
+                      className={`font-display text-4xl transition-colors duration-200 sm:text-5xl ${plan.highlighted ? 'text-gold-light group-hover/plan:text-gold' : 'text-charcoal group-hover/plan:text-gold-dark'}`}
                     >
                       {plan.price}
                     </span>
